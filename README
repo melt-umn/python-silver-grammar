@@ -1,1 +1,18 @@
-COMING SOON!
+STEPS FOR RUNNING THE PYTHON GRAMMAR
+
+1. Install Silver via the instructions on Copper's website: 
+   https://code.google.com/p/silver/downloads/list
+
+2. Download Main.sv, Python.sv, silver-compile, and PythonTest.py and place in a directory. "cd" to this 
+directory 
+
+3. Type "./silver-compile" and hit enter. A ".jar" file will be generated. This will be refered to as $JAR.
+
+4. Type "java -jar $JAR PythonTest.py" to run the test file
+
+MORE INFO COMING SOON!
+
+
+For more information on our work with layout-sensitive parsing, see:
+http://www-users.cs.umn.edu/~hall/research_paper_in_markdown.html
+
