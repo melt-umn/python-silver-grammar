@@ -1,4 +1,4 @@
-grammar edu:umn:cs:melt:python ;
+grammar python-silver-grammar:edu:umn:cs:melt:python ;
 
 
 
