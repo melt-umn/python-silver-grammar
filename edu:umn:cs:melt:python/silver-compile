@@ -3,7 +3,7 @@
 # invoke as               ./silver-compile
 # or add arguments, like  ./silver-compile --clean
 
-export GRAMMAR_PATH="../../../../../"
+export GRAMMAR_PATH="../"
 
 silver $@ edu:umn:cs:melt:python
 
