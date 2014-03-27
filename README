@@ -5,7 +5,7 @@ STEPS FOR RUNNING THE PYTHON GRAMMAR
 
 Note: Please be sure to follow all installation instructions. The "silver" environment variable should be set.
 
-2. Pull the directory "edu.umn.cs.melt.python/" which contains Main.sv, Python.sv, silver-compile, and PythonTest.py
+2. Clone the "python-silver-grammar" repository which contains "edu.umn.cs.melt.python/" which includes Main.sv, Python.sv, silver-compile, and PythonTest.py
  
 3. Within "edu.umn.cs.melt.python/", type "./silver-compile" and hit enter. A ".jar" file will be generated. This will be refered to as $JAR.
 
