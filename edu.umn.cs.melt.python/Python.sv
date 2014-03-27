@@ -89,10 +89,10 @@ grammar edu:umn:cs:melt:python ;
  {
     local attribute newDepth :: Integer = removeExtraWhitespaceAndCalculateLength(lexeme);
     pluck if(parenLevel > 0)
-    then IgnoredNewline
-    else if(newDepth < last(depths))  
-         then Dedent_t 
-         else Newline_t;
+          then IgnoredNewline
+          else if(newDepth < head(depths))  
+               then Dedent_t 
+               else Newline_t;
  }
 
 
@@ -101,10 +101,10 @@ grammar edu:umn:cs:melt:python ;
  {
     local attribute newDepth :: Integer = removeExtraWhitespaceAndCalculateLength(lexeme);
     pluck if(parenLevel > 0)
-    then IgnoredNewline
-    else if(newDepth < last(depths))  
-         then DedentRepair_t 
-         else Newline_t;
+          then IgnoredNewline
+          else if(newDepth < head(depths))  
+               then DedentRepair_t 
+               else Newline_t;
  }
 
 ------------------------Auxillary Functions-------------------------------------------
@@ -327,9 +327,7 @@ grammar edu:umn:cs:melt:python ;
  { 
 
    --push into depths "stack"
-   local attribute reversed :: [Integer] = reverse(depths);
-   reversed = removeExtraWhitespaceAndCalculateLength(lexeme) :: reversed;
-   depths = reverse(reversed);
+   depths = removeExtraWhitespaceAndCalculateLength(lexeme) :: depths;
    --
 
  } ;
@@ -340,12 +338,10 @@ grammar edu:umn:cs:melt:python ;
    local attribute newDepth :: Integer = removeExtraWhitespaceAndCalculateLength(lexeme);
 
    --pop from depths "stack"
-   local attribute reversed :: [Integer] = reverse(depths);
-   reversed = drop(1, reversed);
-   depths = reverse(reversed);
+   depths = drop(1, depths);
    --
 
-   pushToken(Dedent_t, removeExtraWhitespace(lexeme)) if (newDepth < last(depths));
+   pushToken(Dedent_t, removeExtraWhitespace(lexeme)) if (newDepth < head(depths));
 
 
  };
@@ -355,7 +351,7 @@ grammar edu:umn:cs:melt:python ;
  terminal DedentRepair_t  /(\n[\ \t]*)+/ 
  action
  {  
-   pushToken(Dedent_t, lexeme) if (1 == 1) ;
+   pushToken(Dedent_t, lexeme);
  };
 
 
