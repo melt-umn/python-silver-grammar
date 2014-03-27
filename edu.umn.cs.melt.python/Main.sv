@@ -1,4 +1,4 @@
-grammar python-silver-grammar:edu:umn:cs:melt:python ;
+grammar edu:umn:cs:melt:python ;
 
 {--
  - Declare a parser, called 'parse', using the concrete syntax in the
