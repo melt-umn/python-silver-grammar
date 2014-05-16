@@ -7,7 +7,7 @@ Note: Please be sure to follow all installation instructions. The "silver" envir
 
 2. Clone the "python-silver-grammar" repository which contains "edu.umn.cs.melt.python/" which includes Main.sv, Python.sv, silver-compile, and PythonTest.py
  
-3. Within "edu.umn.cs.melt.python/", type "./silver-compile" and hit enter. A ".jar" file will be generated. This will be refered to as $JAR.
+3. Within "edu.umn.cs.melt.python/", type "./silver-compile" and hit enter. A ".jar" file will be generated. This will be referred to as $JAR.
 
 4. Type "java -jar $JAR PythonTest.py" to run the test file
 
