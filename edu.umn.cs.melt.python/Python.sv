@@ -341,7 +341,7 @@ grammar edu:umn:cs:melt:python ;
    depths = drop(1, depths);
    --
 
-   pushToken(Dedent_t, removeExtraWhitespace(lexeme)) if (newDepth < head(depths));
+   if (newDepth < head(depths)) { pushToken(Dedent_t, removeExtraWhitespace(lexeme)); }
 
 
  };

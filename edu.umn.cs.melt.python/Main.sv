@@ -17,16 +17,16 @@ parser parse :: FileInput  { edu:umn:cs:melt:python ; }
  - world' and each value used only once.
  -}
 function main 
-IOVal<Integer> ::= args::[String] io_in::IO
+IOVal<Integer> ::= args::[String] io_in::IOToken
 {
   local attribute filename::String ;
   filename = head(args) ;
 
   production attribute isF :: IOVal<Boolean>;
-  isF = isFile( filename, io_in);
+  isF = isFileT( filename, io_in);
 
   production attribute text :: IOVal<String>;
-  text = readFile(filename, isF.io);
+  text = readFileT(filename, isF.io);
 
   local attribute result :: ParseResult<FileInput>;
   result = parse(text.iovalue, filename);
@@ -39,11 +39,11 @@ IOVal<Integer> ::= args::[String] io_in::IO
          else
          if   ! result.parseSuccess 
          then ioval (
-                 print("Encountered a parse error in file \"" ++ filename ++ 
+                 printT("Encountered a parse error in file \"" ++ filename ++ 
                        "\":\n" ++ result.parseErrors ++ "\n", text.io) ,
                  1 ) 
          else ioval (
-                print( "Program \"" ++ filename ++ "\" parsed correctly.\n" ,
+                printT( "Program \"" ++ filename ++ "\" parsed correctly.\n" ,
                        text.io ) ,
                 0 ) ;
 }
